@@ -24,6 +24,7 @@ class ListViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .none)
     }
     
     func configureListTableView() {

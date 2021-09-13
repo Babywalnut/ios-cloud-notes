@@ -24,6 +24,7 @@ class MemoViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: .none)
     }
     
     func configureMemoTextView() {
