@@ -41,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B47B6D0926EF280F00B92635 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B489C67E26EE2E3900C7E5C4 /* CloudMemoViewController.swift */,
+				B4820A5E26EF05B60029E1B5 /* MemoViewController.swift */,
+				B4820A6126EF05C80029E1B5 /* ListViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B47B6D0A26EF281D00B92635 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		B489C66E26EE2E3900C7E5C4 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +77,14 @@
 		B489C67926EE2E3900C7E5C4 /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B47B6D0A26EF281D00B92635 /* Custom Views */,
+				B47B6D0926EF280F00B92635 /* Screens */,
 				B489C67A26EE2E3900C7E5C4 /* AppDelegate.swift */,
 				B489C67C26EE2E3900C7E5C4 /* SceneDelegate.swift */,
-				B489C67E26EE2E3900C7E5C4 /* CloudMemoViewController.swift */,
 				B489C68626EE2E3C00C7E5C4 /* Assets.xcassets */,
 				B489C68826EE2E3C00C7E5C4 /* LaunchScreen.storyboard */,
 				B489C68B26EE2E3C00C7E5C4 /* Info.plist */,
 				B489C68326EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld */,
-				B4820A5E26EF05B60029E1B5 /* MemoViewController.swift */,
-				B4820A6126EF05C80029E1B5 /* ListViewController.swift */,
 			);
 			path = MemoApp;
 			sourceTree = "<group>";
