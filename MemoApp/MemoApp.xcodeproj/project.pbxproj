@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4820A5F26EF05B60029E1B5 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4820A5E26EF05B60029E1B5 /* MemoViewController.swift */; };
+		B4820A6226EF05C80029E1B5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4820A6126EF05C80029E1B5 /* ListViewController.swift */; };
 		B489C67B26EE2E3900C7E5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489C67A26EE2E3900C7E5C4 /* AppDelegate.swift */; };
 		B489C67D26EE2E3900C7E5C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489C67C26EE2E3900C7E5C4 /* SceneDelegate.swift */; };
 		B489C67F26EE2E3900C7E5C4 /* CloudMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489C67E26EE2E3900C7E5C4 /* CloudMemoViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4820A5E26EF05B60029E1B5 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		B4820A6126EF05C80029E1B5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B489C67726EE2E3900C7E5C4 /* MemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B489C67A26EE2E3900C7E5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B489C67C26EE2E3900C7E5C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				B489C68826EE2E3C00C7E5C4 /* LaunchScreen.storyboard */,
 				B489C68B26EE2E3C00C7E5C4 /* Info.plist */,
 				B489C68326EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld */,
+				B4820A5E26EF05B60029E1B5 /* MemoViewController.swift */,
+				B4820A6126EF05C80029E1B5 /* ListViewController.swift */,
 			);
 			path = MemoApp;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			files = (
 				B489C67F26EE2E3900C7E5C4 /* CloudMemoViewController.swift in Sources */,
 				B489C67B26EE2E3900C7E5C4 /* AppDelegate.swift in Sources */,
+				B4820A6226EF05C80029E1B5 /* ListViewController.swift in Sources */,
+				B4820A5F26EF05B60029E1B5 /* MemoViewController.swift in Sources */,
 				B489C67D26EE2E3900C7E5C4 /* SceneDelegate.swift in Sources */,
 				B489C68526EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld in Sources */,
 			);

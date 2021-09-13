@@ -7,13 +7,27 @@
 
 import UIKit
 
-class CloudMemoViewController: UISplitViewController {
+class CloudMemoViewController: UISplitViewController, UISplitViewControllerDelegate {
+    
+    var listViewController: UINavigationController {
+        return UINavigationController(rootViewController: ListViewController())
+    }
+    
+    var memoViewController: UINavigationController {
+        return UINavigationController(rootViewController: MemoViewController())
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        delegate = self
+        setViewController(listViewController, for: .primary)
+        setViewController(memoViewController, for: .secondary)
+        preferredDisplayMode = .oneBesideSecondary
+        preferredSplitBehavior = .tile
     }
 
-
+    func splitViewController(_ svc: UISplitViewController, topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column) -> UISplitViewController.Column {
+        return .primary
+    }
 }
 
