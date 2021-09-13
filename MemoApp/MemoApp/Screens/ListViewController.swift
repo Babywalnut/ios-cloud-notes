@@ -11,6 +11,8 @@ class ListViewController: UIViewController {
     
     var listTableView: UITableView = {
         let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         return tableView
     }()
 
@@ -26,8 +28,6 @@ class ListViewController: UIViewController {
     
     func configureListTableView() {
         view.addSubview(listTableView)
-
-        listTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             listTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
