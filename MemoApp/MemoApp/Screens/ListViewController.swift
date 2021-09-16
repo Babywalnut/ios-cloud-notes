@@ -9,6 +9,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     
+    var data: [CellData] = []
+    
     var listTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,13 +24,15 @@ class ListViewController: UIViewController {
         configureListTableView()
     }
     
-    func configure() {
+    private func configure() {
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .none)
     }
     
-    func configureListTableView() {
+    private func configureListTableView() {
         view.addSubview(listTableView)
+        listTableView.register(MemoCell.self, forCellReuseIdentifier: MemoCell.identifier)
+        
         
         NSLayoutConstraint.activate([
             listTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

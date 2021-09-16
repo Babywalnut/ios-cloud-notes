@@ -9,13 +9,13 @@ import UIKit
 
 class CloudMemoViewController: UISplitViewController, UISplitViewControllerDelegate {
     
-    var listViewController: UINavigationController {
+    var listViewController: UINavigationController = {
         return UINavigationController(rootViewController: ListViewController())
-    }
+    }()
     
-    var memoViewController: UINavigationController {
+    var memoViewController: UINavigationController = {
         return UINavigationController(rootViewController: MemoViewController())
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

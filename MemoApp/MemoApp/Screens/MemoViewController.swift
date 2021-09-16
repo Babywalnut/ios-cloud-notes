@@ -22,12 +22,12 @@ class MemoViewController: UIViewController {
         configureMemoTextView()
     }
     
-    func configure() {
+    private func configure() {
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: .none)
     }
     
-    func configureMemoTextView() {
+    private func configureMemoTextView() {
         view.addSubview(memoTextView)
         
         NSLayoutConstraint.activate([
