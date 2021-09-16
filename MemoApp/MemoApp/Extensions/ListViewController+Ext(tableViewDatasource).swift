@@ -8,6 +8,7 @@
 import UIKit
 
 extension ListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -16,9 +17,9 @@ extension ListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoCell.identifier, for: indexPath) as? MemoCell else {
             return UITableViewCell()
         }
+
+        configureCell(cell: cell, indexPath: indexPath)
         
         return cell
     }
-    
-    
 }

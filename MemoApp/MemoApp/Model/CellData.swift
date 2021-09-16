@@ -9,11 +9,11 @@ import Foundation
 
 final class CellData {
     
-    var title: String
-    var body: String
-    var date: Double
+    var title: String?
+    var body: String?
+    var date: TimeInterval
     
-    init(title: String, body:String, date:Double) {
+    init(title: String? = nil, body: String? = nil, date: TimeInterval) {
         self.title = title
         self.body = body
         self.date = date

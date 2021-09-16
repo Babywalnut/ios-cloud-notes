@@ -39,6 +39,7 @@ class MemoCell: UITableViewCell {
     
     lazy var cellStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.backgroundColor = .systemOrange
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
@@ -49,6 +50,7 @@ class MemoCell: UITableViewCell {
     
     lazy var contentsStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.backgroundColor = .systemOrange
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fill
@@ -59,6 +61,7 @@ class MemoCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .systemPink
         configureCellStackView()
         configureTitleLabel()
         configureContentsStackView()

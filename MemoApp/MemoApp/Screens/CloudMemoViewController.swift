@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CloudMemoViewController: UISplitViewController, UISplitViewControllerDelegate {
+class CloudMemoViewController: UISplitViewController, UISplitViewControllerDelegate, UITextViewDelegate {
     
     var listViewController: UINavigationController = {
         return UINavigationController(rootViewController: ListViewController())
