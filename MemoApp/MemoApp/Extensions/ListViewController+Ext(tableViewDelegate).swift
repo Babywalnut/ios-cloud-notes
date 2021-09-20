@@ -8,4 +8,15 @@
 import UIKit
 
 extension ListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let bodyData = data[indexPath.row].body else {
+            return }
+        
+        delegate?.passData(body: bodyData)
+        
+        if let detailViewController = delegate as? MemoViewController {
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
+    }
 }

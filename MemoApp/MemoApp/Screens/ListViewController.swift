@@ -9,7 +9,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var data: [CellData] = []
+    var data: [CellData] = [CellData(title: "123", body: "23123123", date: 1212345)]
+    var delegate: DataPassingDelegate?
     
     var listTableView: UITableView = {
         let tableView = UITableView()

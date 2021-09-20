@@ -9,19 +9,30 @@ import UIKit
 
 class CloudMemoViewController: UISplitViewController, UISplitViewControllerDelegate, UITextViewDelegate {
     
-    var listViewController: UINavigationController = {
-        return UINavigationController(rootViewController: ListViewController())
+    lazy var listViewController: ListViewController = {
+        let viewController = ListViewController()
+        return viewController
     }()
     
-    var memoViewController: UINavigationController = {
-        return UINavigationController(rootViewController: MemoViewController())
+    lazy var memoViewController: MemoViewController = {
+        let viewController = MemoViewController()
+        return viewController
+    }()
+    
+    lazy var listNavigationController: UINavigationController = {
+        return UINavigationController(rootViewController: listViewController)
+    }()
+    
+    lazy var memoNavigationController: UINavigationController = {
+        return UINavigationController(rootViewController: memoViewController)
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        setViewController(listViewController, for: .primary)
-        setViewController(memoViewController, for: .secondary)
+        listViewController.delegate = memoViewController
+        setViewController(listNavigationController, for: .primary)
+        setViewController(memoNavigationController, for: .secondary)
         preferredDisplayMode = .oneBesideSecondary
         preferredSplitBehavior = .tile
     }
@@ -30,4 +41,3 @@ class CloudMemoViewController: UISplitViewController, UISplitViewControllerDeleg
         return .primary
     }
 }
-

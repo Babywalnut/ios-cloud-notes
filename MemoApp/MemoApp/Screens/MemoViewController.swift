@@ -9,6 +9,8 @@ import UIKit
 
 class MemoViewController: UIViewController {
     
+    var delegate: DataPassingDelegate?
+    
     var memoTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,5 +38,12 @@ class MemoViewController: UIViewController {
             memoTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             memoTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+}
+
+extension MemoViewController: DataPassingDelegate {
+
+    func passData(body: String) {
+        memoTextView.text = body
     }
 }

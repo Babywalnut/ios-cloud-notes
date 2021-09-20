@@ -67,6 +67,7 @@ class MemoCell: UITableViewCell {
         configureContentsStackView()
         configureDateLabel()
         configureThumbnailLabel()
+        accessoryType = AccessoryType.disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
