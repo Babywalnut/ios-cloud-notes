@@ -13,7 +13,7 @@ extension ListViewController: UITableViewDelegate {
         guard let bodyData = data[indexPath.row].body else {
             return }
         
-        delegate?.passData(body: bodyData)
+        delegate?.passData(body: bodyData, indexPath: indexPath)
         
         if let detailViewController = delegate as? MemoViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)

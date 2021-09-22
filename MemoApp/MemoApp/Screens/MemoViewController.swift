@@ -8,8 +8,9 @@
 import UIKit
 
 class MemoViewController: UIViewController {
-    
+
     var delegate: DataPassingDelegate?
+    var indexPath: IndexPath?
     
     var memoTextView: UITextView = {
         let textView = UITextView()
@@ -22,6 +23,7 @@ class MemoViewController: UIViewController {
         super.viewDidLoad()
         configure()
         configureMemoTextView()
+        memoTextView.delegate = self
     }
     
     private func configure() {
@@ -43,7 +45,8 @@ class MemoViewController: UIViewController {
 
 extension MemoViewController: DataPassingDelegate {
 
-    func passData(body: String) {
+    func passData(body: String, indexPath: IndexPath) {
         memoTextView.text = body
+        self.indexPath = indexPath
     }
 }

@@ -8,5 +8,5 @@
 import UIKit
 
 protocol DataPassingDelegate {
-    func passData(body: String)
+    func passData(body: String, indexPath: IndexPath)
 }

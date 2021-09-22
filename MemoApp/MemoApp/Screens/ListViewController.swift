@@ -66,3 +66,10 @@ class ListViewController: UIViewController {
         cell.thumbnailLabel.text = data[indexPath.row].body
     }
 }
+
+extension ListViewController: DataPassingDelegate {
+    func passData(body: String, indexPath: IndexPath) {
+        data[indexPath.row].body = body
+        listTableView.reloadData()
+    }
+}

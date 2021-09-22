@@ -31,6 +31,7 @@ class CloudMemoViewController: UISplitViewController, UISplitViewControllerDeleg
         super.viewDidLoad()
         delegate = self
         listViewController.delegate = memoViewController
+        memoViewController.delegate = listViewController
         setViewController(listNavigationController, for: .primary)
         setViewController(memoNavigationController, for: .secondary)
         preferredDisplayMode = .oneBesideSecondary

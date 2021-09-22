@@ -31,6 +31,7 @@ class MemoCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .systemGray
+        label.textAlignment = .left
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         
@@ -39,7 +40,6 @@ class MemoCell: UITableViewCell {
     
     lazy var cellStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .systemOrange
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
@@ -50,10 +50,10 @@ class MemoCell: UITableViewCell {
     
     lazy var contentsStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.backgroundColor = .systemOrange
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fill
+        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -61,7 +61,6 @@ class MemoCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .systemPink
         configureCellStackView()
         configureTitleLabel()
         configureContentsStackView()
@@ -81,7 +80,7 @@ class MemoCell: UITableViewCell {
             cellStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             cellStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             cellStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-            cellStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            cellStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -30)
         ])
     }
     

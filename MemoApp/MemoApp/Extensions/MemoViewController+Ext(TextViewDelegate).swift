@@ -11,5 +11,17 @@ extension MemoViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         //ListView TitleLabel수정
+        if let indexPath = self.indexPath {
+            delegate?.passData(body: memoTextView.text, indexPath: indexPath)
+        print("hi")
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("eh")
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("222")
     }
 }
