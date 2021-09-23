@@ -10,13 +10,18 @@ import UIKit
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let bodyData = data[indexPath.row].body else {
-            return }
-        
-        delegate?.passData(body: bodyData, indexPath: indexPath)
+        if let titleData = data[indexPath.row].title, let bodyData = data[indexPath.row].body {
+            delegate?.passData(title: titleData, body: bodyData, indexPath: indexPath)
+        } else {
+            delegate?.initializeData(indexPath: indexPath)
+        }
         
         if let detailViewController = delegate as? MemoViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height / 6
     }
 }

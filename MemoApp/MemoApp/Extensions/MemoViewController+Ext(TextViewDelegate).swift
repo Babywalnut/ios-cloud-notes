@@ -10,10 +10,10 @@ import UIKit
 extension MemoViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        //ListView TitleLabel수정
         if let indexPath = self.indexPath {
-            delegate?.passData(body: memoTextView.text, indexPath: indexPath)
-        print("hi")
+            delegate?.updateData(body: memoTextView.text, indexPath: indexPath)
+            print("hi")
+            print(memoTextView.text.lines)
         }
     }
     

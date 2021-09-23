@@ -9,7 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var data: [CellData] = [CellData(title: "123", body: "23123123", date: 1212345)]
+    var data: [CellData] = []
     var delegate: DataPassingDelegate?
     
     var listTableView: UITableView = {
@@ -61,15 +61,25 @@ class ListViewController: UIViewController {
     func configureCell(cell: MemoCell, indexPath: IndexPath) {
         cell.selectionStyle = .none
         cell.separatorInset = .zero
-        cell.titleLabel.text = data[indexPath.row].title
+        if let title = data[indexPath.row].title, let body = data[indexPath.row].body  {
+            cell.titleLabel.text = title
+            cell.thumbnailLabel.text = body
+        } else {
+            cell.titleLabel.text = InitialData.title.rawValue
+            cell.thumbnailLabel.text = InitialData.body.rawValue
+        }
         cell.dateLabel.text = "\(convertedDate(indexPath: indexPath))"
-        cell.thumbnailLabel.text = data[indexPath.row].body
     }
 }
 
-extension ListViewController: DataPassingDelegate {
-    func passData(body: String, indexPath: IndexPath) {
-        data[indexPath.row].body = body
+extension ListViewController: DataUpdateDelegate {
+    func updateData( body: String, indexPath: IndexPath) {
+        data[indexPath.row].title = body.lines[0]
+        var bodyArray = body.lines
+        bodyArray.removeFirst()
+        print(bodyArray)
+        let bodyData = bodyArray.joined(separator: "\n")
+        data[indexPath.row].body = bodyData
         listTableView.reloadData()
     }
 }

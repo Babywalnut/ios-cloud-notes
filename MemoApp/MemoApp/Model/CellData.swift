@@ -13,7 +13,7 @@ final class CellData {
     var body: String?
     var date: TimeInterval
     
-    init(title: String? = "", body: String? = "", date: TimeInterval) {
+    init(title: String? = nil, body: String? = nil, date: TimeInterval) {
         self.title = title
         self.body = body
         self.date = date

@@ -94,9 +94,12 @@ class MemoCell: UITableViewCell {
     
     private func configureDateLabel() {
         contentsStackView.addArrangedSubview(dateLabel)
+        dateLabel.setContentHuggingPriority(UILayoutPriority(251), for: .horizontal)
+        
     }
     
     private func configureThumbnailLabel() {
         contentsStackView.addArrangedSubview(thumbnailLabel)
+        thumbnailLabel.setContentHuggingPriority(UILayoutPriority(250), for: .horizontal)
     }
 }

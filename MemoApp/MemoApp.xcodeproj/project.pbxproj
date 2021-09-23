@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B463ACB826FC614000AD2B5E /* DataUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B463ACB726FC614000AD2B5E /* DataUpdateDelegate.swift */; };
+		B463ACBB26FC80C600AD2B5E /* InitialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B463ACBA26FC80C600AD2B5E /* InitialData.swift */; };
 		B47B6D0E26EF6FAB00B92635 /* ListViewController+Ext(tableViewDelegate).swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B6D0D26EF6FAB00B92635 /* ListViewController+Ext(tableViewDelegate).swift */; };
 		B47B6D1126EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B6D1026EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift */; };
 		B47B6D1726EF734400B92635 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B6D1626EF734400B92635 /* CellData.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B463ACB726FC614000AD2B5E /* DataUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUpdateDelegate.swift; sourceTree = "<group>"; };
+		B463ACBA26FC80C600AD2B5E /* InitialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialData.swift; sourceTree = "<group>"; };
 		B47B6D0D26EF6FAB00B92635 /* ListViewController+Ext(tableViewDelegate).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Ext(tableViewDelegate).swift"; sourceTree = "<group>"; };
 		B47B6D1026EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Ext(tableViewDatasource).swift"; sourceTree = "<group>"; };
 		B47B6D1626EF734400B92635 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B47B6D1626EF734400B92635 /* CellData.swift */,
+				B463ACBA26FC80C600AD2B5E /* InitialData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B47EBD5626F36DD900D6EF80 /* DataPassingDelegate.swift */,
+				B463ACB726FC614000AD2B5E /* DataUpdateDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -202,11 +208,13 @@
 			files = (
 				B47B6D1126EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift in Sources */,
 				B489C67F26EE2E3900C7E5C4 /* CloudMemoViewController.swift in Sources */,
+				B463ACBB26FC80C600AD2B5E /* InitialData.swift in Sources */,
 				B47B6D1726EF734400B92635 /* CellData.swift in Sources */,
 				B489C67B26EE2E3900C7E5C4 /* AppDelegate.swift in Sources */,
 				B4820A6226EF05C80029E1B5 /* ListViewController.swift in Sources */,
 				B47B6D0E26EF6FAB00B92635 /* ListViewController+Ext(tableViewDelegate).swift in Sources */,
 				B4820A5F26EF05B60029E1B5 /* MemoViewController.swift in Sources */,
+				B463ACB826FC614000AD2B5E /* DataUpdateDelegate.swift in Sources */,
 				B489C67D26EE2E3900C7E5C4 /* SceneDelegate.swift in Sources */,
 				B489C68526EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld in Sources */,
 				B47B6D1A26EF754800B92635 /* MemoCell.swift in Sources */,
