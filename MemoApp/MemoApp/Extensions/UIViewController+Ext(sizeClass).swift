@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIViewController {
+    
     func sizeClass() -> UIUserInterfaceSizeClass {
         return self.traitCollection.verticalSizeClass
     }

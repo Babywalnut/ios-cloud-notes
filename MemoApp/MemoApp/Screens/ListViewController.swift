@@ -74,12 +74,30 @@ class ListViewController: UIViewController {
 
 extension ListViewController: DataUpdateDelegate {
     func updateData( body: String, indexPath: IndexPath) {
-        data[indexPath.row].title = body.lines[0]
-        var bodyArray = body.lines
-        bodyArray.removeFirst()
-        print(bodyArray)
-        let bodyData = bodyArray.joined(separator: "\n")
-        data[indexPath.row].body = bodyData
+        var count = 0
+        var titleIndex = 0
+        var textElementsList = body.lines
+        
+        for (index,line) in textElementsList.enumerated() {
+            if count == 0 && line != "" {
+                data[indexPath.row].title = line
+                count += 1
+            } else if count == 1 && line != "" {
+                titleIndex = index
+                break
+            } else if count == 0 && index == textElementsList.count - 1 {
+                data[indexPath.row].title = ""
+            }
+        }
+        
+        if titleIndex != 0 {
+            textElementsList.removeSubrange(0..<titleIndex)
+            print(textElementsList)
+        } else {
+            textElementsList.removeSubrange(0...titleIndex)
+        }
+        
+        data[indexPath.row].body = textElementsList.joined(separator: "\n")
         listTableView.reloadData()
     }
 }
