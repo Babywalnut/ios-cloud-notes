@@ -22,6 +22,10 @@ extension ListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height / 6
+        if sizeClass() == .compact {
+            return UIScreen.main.bounds.height / 6
+        } else {
+            return UIScreen.main.bounds.height / 10
+        }
     }
 }
