@@ -8,5 +8,6 @@
 import UIKit
 
 protocol DataUpdateDelegate {
+    
     func updateData(body: String, indexPath: IndexPath)
 }

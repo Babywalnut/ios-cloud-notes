@@ -8,6 +8,7 @@
 import UIKit
 
 protocol DataPassingDelegate {
+    
     func passData(text: String, indexPath: IndexPath)
     
     func initializeData(indexPath: IndexPath)

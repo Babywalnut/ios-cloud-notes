@@ -42,11 +42,3 @@ class CloudMemoViewController: UISplitViewController, UISplitViewControllerDeleg
         return .primary
     }
 }
-
-extension String {
-    var lines: [String] {
-        get {
-            return self.components(separatedBy: NSCharacterSet.newlines)
-        }
-    }
-}

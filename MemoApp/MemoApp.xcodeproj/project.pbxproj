@@ -23,6 +23,7 @@
 		B489C68526EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B489C68326EE2E3A00C7E5C4 /* MemoApp.xcdatamodeld */; };
 		B489C68726EE2E3C00C7E5C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B489C68626EE2E3C00C7E5C4 /* Assets.xcassets */; };
 		B489C68A26EE2E3C00C7E5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B489C68826EE2E3C00C7E5C4 /* LaunchScreen.storyboard */; };
+		B48C40B62701D624005E5E97 /* String+Ext(lines).swift in Sources */ = {isa = PBXBuildFile; fileRef = B48C40B52701D624005E5E97 /* String+Ext(lines).swift */; };
 		B4B155BF26FD852300636C1C /* UIViewController+Ext(sizeClass).swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B155BE26FD852300636C1C /* UIViewController+Ext(sizeClass).swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		B489C68626EE2E3C00C7E5C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B489C68926EE2E3C00C7E5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B489C68B26EE2E3C00C7E5C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B48C40B52701D624005E5E97 /* String+Ext(lines).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext(lines).swift"; sourceTree = "<group>"; };
 		B4B155BE26FD852300636C1C /* UIViewController+Ext(sizeClass).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext(sizeClass).swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 				B47B6D1026EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift */,
 				B47EBD5126F2FC0800D6EF80 /* MemoViewController+Ext(TextViewDelegate).swift */,
 				B4B155BE26FD852300636C1C /* UIViewController+Ext(sizeClass).swift */,
+				B48C40B52701D624005E5E97 /* String+Ext(lines).swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47B6D1126EF700700B92635 /* ListViewController+Ext(tableViewDatasource).swift in Sources */,
+				B48C40B62701D624005E5E97 /* String+Ext(lines).swift in Sources */,
 				B489C67F26EE2E3900C7E5C4 /* CloudMemoViewController.swift in Sources */,
 				B463ACBB26FC80C600AD2B5E /* InitialData.swift in Sources */,
 				B47B6D1726EF734400B92635 /* CellData.swift in Sources */,

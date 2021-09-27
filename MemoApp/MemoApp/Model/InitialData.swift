@@ -8,6 +8,7 @@
 import Foundation
 
 enum InitialData: String {
+    
     case title = "새로운 메모"
     case body = "추가 텍스트 없음"
 }

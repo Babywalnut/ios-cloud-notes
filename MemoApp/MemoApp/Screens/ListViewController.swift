@@ -25,9 +25,14 @@ class ListViewController: UIViewController {
         configureListTableView()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        guard let selectedRow = listTableView.indexPathsForSelectedRows else {
+            return
+        }
         
+        if sizeClass() == .regular {
+            listTableView.deselectRow(at: selectedRow[0], animated: false)
+        }
     }
     
     private func configure() {
@@ -73,12 +78,12 @@ class ListViewController: UIViewController {
             cell.titleLabel.text = InitialData.title.rawValue
             cell.thumbnailLabel.text = InitialData.body.rawValue
         }
-        cell.dateLabel.text = "\(convertedDate(indexPath: indexPath))"
+        cell.dateLabel.text = convertedDate(indexPath: indexPath)
     }
     
     func combinedText(title: String, titleSpacing: Int, body: String, bodySpacing: Int) -> String {
         var textElementList: [String] = []
-        var combinedText = ""
+        var combinedText: String
         textElementList.append(String(repeating: "\n", count: titleSpacing))
         textElementList.append(title)
         textElementList.append(String(repeating: "\n", count: bodySpacing))
