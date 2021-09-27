@@ -9,10 +9,10 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var data: [CellData] = []
+    var data: [CellData] = [CellData(title: "efasef", titleSpacing: 2, body: "efaef", bodySpacing: 2, date: 123124232)]
     var delegate: DataPassingDelegate?
     
-    var listTableView: UITableView = {
+    lazy var listTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -23,6 +23,11 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         configure()
         configureListTableView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
     private func configure() {
@@ -49,7 +54,7 @@ class ListViewController: UIViewController {
         ])
     }
     
-    func convertedDate(indexPath: IndexPath) -> String {
+    private func convertedDate(indexPath: IndexPath) -> String {
         let dateFormetter = DateFormatter()
         let date = Date(timeIntervalSince1970: data[indexPath.row].date)
         dateFormetter.dateFormat = "yyyy-MM-dd"
@@ -70,34 +75,44 @@ class ListViewController: UIViewController {
         }
         cell.dateLabel.text = "\(convertedDate(indexPath: indexPath))"
     }
+    
+    func combinedText(title: String, titleSpacing: Int, body: String, bodySpacing: Int) -> String {
+        var textElementList: [String] = []
+        var combinedText = ""
+        textElementList.append(String(repeating: "\n", count: titleSpacing))
+        textElementList.append(title)
+        textElementList.append(String(repeating: "\n", count: bodySpacing))
+        textElementList.append(body)
+        combinedText = textElementList.joined(separator: "\n")
+        
+        return combinedText
+    }
 }
 
 extension ListViewController: DataUpdateDelegate {
-    func updateData( body: String, indexPath: IndexPath) {
-        var count = 0
+    func updateData(body: String, indexPath: IndexPath) {
         var titleIndex = 0
-        var textElementsList = body.lines
+        var spacing = 0
+        let textElementsList = body.lines
         
         for (index,line) in textElementsList.enumerated() {
-            if count == 0 && line != "" {
-                data[indexPath.row].title = line
-                count += 1
-            } else if count == 1 && line != "" {
+            if line != "" {
                 titleIndex = index
                 break
-            } else if count == 0 && index == textElementsList.count - 1 {
-                data[indexPath.row].title = ""
             }
         }
         
-        if titleIndex != 0 {
-            textElementsList.removeSubrange(0..<titleIndex)
-            print(textElementsList)
-        } else {
-            textElementsList.removeSubrange(0...titleIndex)
+        for (index,line) in textElementsList[(titleIndex + 1)...].enumerated() {
+            if line != "" {
+                spacing = index
+                break
+            }
         }
         
-        data[indexPath.row].body = textElementsList.joined(separator: "\n")
+        data[indexPath.row].title = textElementsList[titleIndex]
+        data[indexPath.row].titleSpacing = titleIndex - 1
+        data[indexPath.row].body = textElementsList[(titleIndex + spacing + 1)...].joined(separator: "\n")
+        data[indexPath.row].bodySpacing = spacing
         listTableView.reloadData()
     }
 }

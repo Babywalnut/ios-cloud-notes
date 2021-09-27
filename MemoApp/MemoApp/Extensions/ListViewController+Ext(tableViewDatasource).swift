@@ -19,6 +19,7 @@ extension ListViewController: UITableViewDataSource {
         }
 
         configureCell(cell: cell, indexPath: indexPath)
+        cell.selectionStyle = .blue
         
         return cell
     }

@@ -10,10 +10,15 @@ import UIKit
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let titleData = data[indexPath.row].title, let bodyData = data[indexPath.row].body {
-            delegate?.passData(title: titleData, body: bodyData, indexPath: indexPath)
+        if let titleData = data[indexPath.row].title, let titleSpacing = data[indexPath.row].titleSpacing, let bodySpacing = data[indexPath.row].bodySpacing, let bodyData = data[indexPath.row].body {
+            let fullText = combinedText(title: titleData, titleSpacing: titleSpacing, body: bodyData, bodySpacing: bodySpacing)
+            delegate?.passData(text: fullText, indexPath: indexPath)
         } else {
             delegate?.initializeData(indexPath: indexPath)
+        }
+        
+        if sizeClass() == .regular {
+            tableView.deselectRow(at: indexPath, animated: false)
         }
         
         if let detailViewController = delegate as? MemoViewController {

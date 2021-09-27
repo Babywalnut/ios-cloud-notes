@@ -41,23 +41,12 @@ class MemoViewController: UIViewController {
             memoTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
-    
-    private func combinedText(title: String, body: String) -> String {
-        var textElementList: [String] = []
-        
-        textElementList.append("\(title)\n")
-        textElementList.append(body)
-        
-        let combinedText  = textElementList.joined()
-        
-        return combinedText
-    }
 }
 
 extension MemoViewController: DataPassingDelegate {
 
-    func passData(title: String, body: String, indexPath: IndexPath) {
-        memoTextView.text = combinedText(title: title, body: body)
+    func passData(text: String, indexPath: IndexPath) {
+        memoTextView.text = text
         self.indexPath = indexPath
     }
     
