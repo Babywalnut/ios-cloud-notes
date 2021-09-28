@@ -9,11 +9,13 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var data: [CellData] = [CellData(title: "efasef", titleSpacing: 2, body: "efaef", bodySpacing: 2, date: 123124232)]
+    var data: [CellData] = []
     var delegate: DataPassingDelegate?
+    
     
     lazy var listTableView: UITableView = {
         let tableView = UITableView()
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
@@ -68,10 +70,8 @@ class ListViewController: UIViewController {
         return convertedDate
     }
     
-    func configureCell(cell: MemoCell, indexPath: IndexPath) {
-        cell.selectionStyle = .none
-        cell.separatorInset = .zero
-        if let title = data[indexPath.row].title, let body = data[indexPath.row].body  {
+    private func initializeCellData(cell: MemoCell, indexPath: IndexPath) {
+        if let title = self.data[indexPath.row].title, let body = self.data[indexPath.row].body  {
             cell.titleLabel.text = title
             cell.thumbnailLabel.text = body
         } else {
@@ -81,6 +81,12 @@ class ListViewController: UIViewController {
         cell.dateLabel.text = convertedDate(indexPath: indexPath)
     }
     
+    func configureCell(cell: MemoCell, indexPath: IndexPath) {
+        cell.selectionStyle = .none
+        cell.separatorInset = .zero
+        initializeCellData(cell: cell, indexPath: indexPath)
+    }
+    
     func combinedText(title: String, titleSpacing: Int, body: String, bodySpacing: Int) -> String {
         var textElementList: [String] = []
         var combinedText: String
@@ -88,36 +94,35 @@ class ListViewController: UIViewController {
         textElementList.append(title)
         textElementList.append(String(repeating: "\n", count: bodySpacing))
         textElementList.append(body)
-        combinedText = textElementList.joined(separator: "\n")
+        combinedText = textElementList.joined()
         
         return combinedText
     }
-}
-
-extension ListViewController: DataUpdateDelegate {
-    func updateData(body: String, indexPath: IndexPath) {
-        var titleIndex = 0
+    
+    func numberOfSpacingLine(textArray: [String]) -> Int {
         var spacing = 0
-        let textElementsList = body.lines
-        
-        for (index,line) in textElementsList.enumerated() {
-            if line != "" {
-                titleIndex = index
-                break
-            }
-        }
-        
-        for (index,line) in textElementsList[(titleIndex + 1)...].enumerated() {
+        for (index,line) in textArray.enumerated() {
             if line != "" {
                 spacing = index
                 break
             }
         }
+
+        return spacing
+    }
+}
+
+extension ListViewController: DataUpdateDelegate {
+    
+    func updateData(body: String, indexPath: IndexPath) {
+        let textArray = body.lines
+        let titleSpacing = numberOfSpacingLine(textArray: textArray)
+        let bodySpacing = numberOfSpacingLine(textArray: Array(textArray[(titleSpacing + 1)...]))
         
-        data[indexPath.row].title = textElementsList[titleIndex]
-        data[indexPath.row].titleSpacing = titleIndex - 1
-        data[indexPath.row].body = textElementsList[(titleIndex + spacing + 1)...].joined(separator: "\n")
-        data[indexPath.row].bodySpacing = spacing
-        listTableView.reloadData()
+        data[indexPath.row].title = textArray[titleSpacing]
+        data[indexPath.row].titleSpacing = titleSpacing
+        data[indexPath.row].body = textArray[(titleSpacing + bodySpacing + 1)...].joined(separator: "\n")
+        data[indexPath.row].bodySpacing = bodySpacing
+        listTableView.reloadRows(at: [indexPath], with: .none)
     }
 }

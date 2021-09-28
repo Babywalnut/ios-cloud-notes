@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CellData {
+struct CellData {
     
     var title: String?
     var titleSpacing: Int?
